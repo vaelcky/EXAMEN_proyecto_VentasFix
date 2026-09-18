@@ -9,7 +9,7 @@ class RutValido implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        // aquí quitamos puntos y guion para trabajar solo y recalco, solo con los numeros
+        // aquí quitamos puntos y guion para trabajar solo y recalco, solo con lo que es numeros, esto lo vimos en una clase que fue else mestre pasado kasdkjhejdh
         $rut = strtoupper(str_replace(['.', '-'], '', $value));
 
         if (!preg_match('/^\d{7,8}[0-9K]$/', $rut)) {

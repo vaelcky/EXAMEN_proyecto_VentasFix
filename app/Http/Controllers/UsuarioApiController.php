@@ -53,7 +53,7 @@ class UsuarioApiController extends Controller
         return response()->json($usuario, 201);
     }
 
-    // PUT/PATCH: actualiza un usuario existente. agrego que el put es para actualizar
+    // PUT/PATCH:actualiza un usuario existente. agrego que el put es para actualizar
     //todo un campo y patch para actualizar el o los campo que querramos (los que eligamos)
     public function update(Request $request, $id)
     {

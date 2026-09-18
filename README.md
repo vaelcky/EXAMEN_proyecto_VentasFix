@@ -1,6 +1,6 @@
 # VentasFix — Backoffice de Gestión
 
-Sistema de administración para VentasFix, desarrollado con Laravel. Incluye autenticación con JWT, gestión de Usuarios, Productos y Clientes, tanto por interfaz web (backoffice) como por API REST protegida.
+Sistema de administración para VentasFix, desarrollado con laravel. este proyecto ncluye autenticación con JWT, gestión de Usuarios, Productos y Clientes, tanto por interfaz web (backoffice) como por API REST protegida.
 
 ## Requisitos previos
 
@@ -125,9 +125,9 @@ Content-Type: application/json
 ```
 **Importante:** el correo debe terminar obligatoriamente en `@ventasfix.cl`, y el rut debe ser un RUT chileno válido (con dígito verificador correcto), o la petición será rechazada.
 
-### Usuario ya creado para evaluación
+### Usuario ya creado para la evaluación
 
-Para facilitar la revisión, ya se creó una cuenta lista para usar en el backoffice:
+Para facilitar la revisión, ya cree una cuenta lista para usar en el backoffice:
 
 - **Correo:** `profesorbyron@ventasfix.cl`
 - **Contraseña:** `profesorpro2026`

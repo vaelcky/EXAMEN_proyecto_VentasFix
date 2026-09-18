@@ -35,7 +35,7 @@ class ProductoApiController extends Controller
             'imagen' => 'required|string',
             'precio_neto' => 'required|numeric|min:1',
             'stock_actual' => 'required|integer|min:0',
-            'stock_minimo' => 'required|integer|min:0',
+            'stock_minimo' => 'required|integer|min:0|lt:stock_bajo',
             'stock_bajo' => 'required|integer|min:0',
             'stock_alto' => 'required|integer|min:0',
         ], [
@@ -49,11 +49,12 @@ class ProductoApiController extends Controller
             'precio_neto.min' => 'El precio neto debe ser mayor que cero.',
             'stock_actual.required' => 'El stock actual es obligatorio.',
             'stock_minimo.required' => 'El stock minimo es obligatorio.',
+            'stock_minimo.lt' => 'El stock minimo debe ser menor que el stock bajo.',
             'stock_bajo.required' => 'El stock bajo es obligatorio.',
             'stock_alto.required' => 'El stock alto es obligatorio.',
         ]);
 
-        //el precio de venta se calcula solo, así: precio neto + 19% de iva
+        //ojo el precio de venta se calcula solo, así: precio neto + 19% de iva
         $validated['precio_venta'] = round($validated['precio_neto'] * 1.19, 2);
         $producto = Producto::create($validated);
         return response()->json($producto, 201);
@@ -75,7 +76,7 @@ class ProductoApiController extends Controller
             'imagen' => 'required|string',
             'precio_neto' => 'required|numeric|min:1',
             'stock_actual' => 'required|integer|min:0',
-            'stock_minimo' => 'required|integer|min:0',
+            'stock_minimo' => 'required|integer|min:0|lt:stock_bajo',
             'stock_bajo' => 'required|integer|min:0',
             'stock_alto' => 'required|integer|min:0',
         ], [
@@ -89,6 +90,7 @@ class ProductoApiController extends Controller
             'precio_neto.min' => 'El precio neto debe ser mayor que cero.',
             'stock_actual.required' => 'El stock actual es obligatorio.',
             'stock_minimo.required' => 'El stock minimo es obligatorio.',
+            'stock_minimo.lt' => 'El stock minimo debe ser menor que el stock bajo.',
             'stock_bajo.required' => 'El stock bajo es obligatorio.',
             'stock_alto.required' => 'El stock alto es obligatorio.',
         ]);
@@ -97,7 +99,7 @@ class ProductoApiController extends Controller
         return response()->json($producto, 200);
     }
 
-    // DELETE:elimina un producto
+    // DELETE:elimina un producto uwu
     public function destroy($id)
     {
         $producto = Producto::find($id);
